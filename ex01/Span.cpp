@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <numeric>
+#include <stdint.h>
 #include "Span.hpp"
 
 Span::Span(): _capacity(0) {}
@@ -50,7 +51,7 @@ int Span::shortestSpan() const {
 	 * the bigger one and checks if it's smaller than the return value. If yes, replace it!
 	 */
 	return std::inner_product(
-			std::next(_set.begin()), std::prev(_set.end()), // iterator 1 start and end
+			++(_set.begin()), --(_set.end()), // iterator 1 start and end
 			_set.begin(), // iterator 2 start
 			INT32_MAX, // initial value
 			std::min<int>, std::minus<int>()); // functions to call (will be like `rv = min(rv, *i1 - *i2)`)

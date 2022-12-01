@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <algorithm>
 #include <iostream>
 #include <vector>
 #include "Span.hpp"

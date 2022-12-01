@@ -12,8 +12,8 @@
 
 #pragma once
 
-#include <exception>
 #include <set>
+#include <stdexcept>
 
 class Span {
 	private:
@@ -40,7 +40,7 @@ class Span {
 
 template<class II>
 void Span::addRange(II begin, II end) {
-	const ptrdiff_t count = std::distance(begin, end);
+	const std::ptrdiff_t count = std::distance(begin, end);
 	if (count < 0)
 		throw std::range_error("You think the end should come before the beginning?\n");
 	if ((size_t) count > _capacity - _set.size())
